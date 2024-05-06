@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Transaction {
+  guid: ID!
+  accountExternalIdDebit: ID!
+  accountExternalIdCredit: ID!
+  tranferTypeId: Int!
+  value: Float!
+  status: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type TransactionPagination {
+  transactions: [Transaction!]!
+  totalCount: Int!
+  page: Int!
+  limit: Int!
+}
+
+type Query {
+  transactions(guid: ID!): Transaction!
+  paginatedTransactions(page: Int! = 1, limit: Int! = 10): TransactionPagination!
+}
+
+type Mutation {
+  createTransaction(createTransactionInput: CreateTransactionInput!): ID
+}
+
+input CreateTransactionInput {
+  accountExternalIdDebit: ID!
+  accountExternalIdCredit: ID!
+  tranferTypeId: Int!
+  value: Float
+}
